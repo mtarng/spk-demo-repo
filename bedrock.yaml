@@ -1,0 +1,7 @@
+services:
+  ./:
+    helm:
+      chart:
+        git: ''
+        branch: ''
+        path: ''

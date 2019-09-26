@@ -1,0 +1,5 @@
+info: Initializing project /Users/mtarng/spk-demo-repo as a standard service repository {"service":"spk","timestamp":"2019-09-26T18:39:08.915Z"}
+info: Generating bedrock.yaml file in /Users/mtarng/spk-demo-repo {"service":"spk","timestamp":"2019-09-26T18:39:08.917Z"}
+info: Generating maintainers.yaml file in /Users/mtarng/spk-demo-repo {"service":"spk","timestamp":"2019-09-26T18:39:08.924Z"}
+info: Generating starter azure-pipelines.yaml in /Users/mtarng/spk-demo-repo {"service":"spk","timestamp":"2019-09-26T18:39:08.954Z"}
+info: Project initialization complete! {"service":"spk","timestamp":"2019-09-26T18:39:08.956Z"}

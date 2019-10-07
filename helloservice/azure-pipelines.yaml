@@ -1,0 +1,29 @@
+trigger:
+  branches:
+    include:
+      - master
+  paths:
+    include:
+      - ./helloservice
+variables:
+  group: []
+pool:
+  vmImage: ubuntu-latest
+steps:
+  - displayName: Run a multi-line script
+    script: |-
+      printenv | sort
+      pwd
+      ls -la
+      echo "The name of this service is: $(BUILD.BUILDNUMBER)"
+  - displayName: Azure Login
+    script: |-
+      echo "az login --service-principal --username $(SP_APP_ID) --password $(SP_PASS) --tenant $(SP_TENANT)"
+      az login --service-principal --username "$(SP_APP_ID)" --password "$(SP_PASS)" --tenant "$(SP_TENANT)"
+  - displayName: ACR Build and Publish
+    script: |-
+      cd ./helloservice # Need to make sure Build.DefinitionName matches directory. It's case sensitive
+      echo "az acr build -r $(ACR_NAME) --image $(Build.DefinitionName):$(build.SourceBranchName)-$(build.BuildId) ."
+      az acr build -r $(ACR_NAME) --image $(Build.DefinitionName):$(build.SourceBranchName)-$(build.BuildId) .
+  - displayName: Run a one-line script
+    script: 'echo Hello, world!'
